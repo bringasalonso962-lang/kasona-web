@@ -45,6 +45,16 @@ p{margin:0 0 12px}
 .nav{display:none;gap:26px;font-size:15px}
 .nav a{text-decoration:none;opacity:.85}
 .top .btn{min-height:40px;padding:0 16px;font-size:14px}
+.topr{display:flex;align-items:center;gap:10px}
+.burger{width:44px;height:44px;border:1px solid rgba(213,221,209,.35);border-radius:4px;background:transparent;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:0}
+.burger span{display:block;width:20px;height:1.6px;background:var(--m);transition:transform .2s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+.mnav{position:fixed;top:64px;left:0;right:0;bottom:0;z-index:19;background:var(--g);color:var(--m);padding:8px max(5vw,18px) 40px;overflow-y:auto;display:flex;flex-direction:column}
+.mnav[hidden]{display:none}
+.mnav a{text-decoration:none;font-size:19px;font-weight:300;padding:14px 0;border-bottom:1px solid rgba(213,221,209,.15)}
+.mnav .btn{margin-top:22px;border:0;font-size:16px;font-weight:500;padding:0 24px}
 /* hero */
 .hero{background:var(--g);color:var(--m);display:grid}
 .hero-img{aspect-ratio:4/3.2;overflow:hidden}
@@ -178,12 +188,13 @@ footer a{text-decoration:none}
 }
 @media(min-width:960px){
  .nav{display:flex}
+ .burger,.mnav{display:none!important}
  .hero{grid-template-columns:1fr 1.1fr;min-height:620px}
  .hero-img{aspect-ratio:auto;order:2}
  .hero-txt{padding:72px 56px 72px max(5vw,18px);display:flex;flex-direction:column;justify-content:center}
 }
 @media(max-width:699px){.styles{grid-auto-flow:column;grid-auto-columns:82%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin-inline:calc(-1*max(5vw,18px));padding-inline:max(5vw,18px);scroll-padding-inline:max(5vw,18px)}.style{scroll-snap-align:start}}
-@media(max-width:420px){.wa span{display:none}.wa{padding:0;width:58px;justify-content:center}}
+@media(max-width:420px){.top .btn-a{padding:0 12px;font-size:13px}.wa span{display:none}.wa{padding:0;width:58px;justify-content:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.style .ph img,.btn{transition:none}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -194,8 +205,13 @@ footer a{text-decoration:none}
 <header class="top">
  <a class="logo" href="#inicio" aria-label="KASONA, inicio"><svg><use href="#iso"/></svg><span>KASONA</span></a>
  <nav class="nav" aria-label="Secciones"><a href="#para-quien">Para quién</a><a href="#estilos">Estilos</a><a href="#precios">Precios</a><a href="#compromiso">Compromiso</a><a href="#visita">Visita</a></nav>
- <a class="btn btn-a" href="#visita">Agenda tu visita</a>
+ <div class="topr"><a class="btn btn-a" href="#visita">Agenda tu visita</a>
+ <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button></div>
 </header>
+<nav class="mnav" id="mnav" aria-label="Menú" hidden>
+ <a href="#para-quien">¿Para quién es KASONA?</a><a href="#manera">Cómo trabajamos</a><a href="#espacio">Tipos de cocina</a><a href="#estilos">Estilos</a><a href="#precios">Precios</a><a href="#cotiza">Cotizador referencial</a><a href="#materiales">Materiales</a><a href="#compromiso">Compromiso</a><a href="#antes-despues">Antes y después</a><a href="#preguntas">Preguntas frecuentes</a><a href="#visita">Agenda tu visita sin costo</a>
+ <a class="btn btn-wa wa-link" data-msg="Hola KASONA, quiero información para mi cocina." href="#"><svg width="22" height="22"><use href="#wai"/></svg>Escríbenos por WhatsApp</a>
+</nav>
 
 <section class="hero" id="inicio">
  <div class="hero-img"><img src="img/hero.jpg" alt="Cocina con muebles verde oliva, isla de piedra y banquetas tapizadas" fetchpriority="high"></div>
@@ -287,7 +303,7 @@ footer a{text-decoration:none}
 
   <div class="quote" id="cotiza">
    <form class="qf" id="qf" onsubmit="return false">
-    <div class="full"><h3 style="color:var(--m)">¿Cuánto costaría tu cocina?</h3><p style="color:var(--s);margin:6px 0 0;font-size:15px">Una referencia rápida. No necesitas dejar datos.</p></div>
+    <div class="full"><div style="font-size:13px;color:var(--a);font-weight:500;letter-spacing:.06em;margin-bottom:6px">COTIZADOR REFERENCIAL</div><h3 style="color:var(--m)">¿Cuánto podría costar tu cocina?</h3><p style="color:var(--s);margin:6px 0 0;font-size:15px">Solo una referencia para orientarte. Cada casa y cada espacio son distintos, por eso el precio real se define en la visita técnica sin costo.</p></div>
     <div><label for="q-size">Tamaño</label><select id="q-size"><option value="c">Compacta · 6–10 m²</option><option value="f" selected>Familiar · 12–20 m²</option><option value="r">Residencial · 25–40 m²</option></select></div>
     <div><label for="q-pack">Alcance</label><select id="q-pack"><option value="e">Esencial · todo el mobiliario</option><option value="i" selected>Integral</option><option value="x">Completa</option></select></div>
     <div><label for="q-front">Frentes</label><select id="q-front"><option value="0">Melamina premium</option><option value="1">MDF laqueado</option><option value="2">Enchape natural</option></select></div>
@@ -298,11 +314,11 @@ footer a{text-decoration:none}
      <label><input type="checkbox" id="q-herr"> Herrajes elevables</label></div></div>
    </form>
    <div class="qr" aria-live="polite">
-    <div style="font-size:14px;color:var(--s)">Tu cocina KASONA, entre</div>
+    <div style="font-size:14px;color:var(--s)">Rango referencial</div>
     <div class="rg" id="q-out">S/ 30,000 – 35,000</div>
     <div class="sm" id="q-sum">Familiar · Integral · Melamina premium · Granito</div>
     <a class="btn btn-wa" id="q-wa" href="#"><svg width="22" height="22"><use href="#wai"/></svg>Enviar por WhatsApp</a>
-    <p class="sm" style="margin:14px 0 0">Precio referencial sin IGV. El precio final, por partidas, sale de la visita técnica.</p>
+    <p class="sm" style="margin:14px 0 0">Monto referencial, sin IGV. No es una cotización: cada proyecto se adecua a tu casa y a tu espacio. El precio final, por partidas, lo definimos después de la visita técnica.</p>
    </div>
   </div>
  </div>
@@ -434,7 +450,7 @@ const calc=()=>{
  if(isla.checked)parts.push('isla');if(desp)parts.push('despensa');if(herr)parts.push('herrajes elevables');
  $('q-out').textContent=fmt(lo)+' – '+fmt(hi).replace('S/ ','');
  $('q-sum').textContent=parts.join(' · ');
- const a=$('q-wa');a.href=wa(`Hola KASONA, usé el cotizador de la web: cocina ${parts.join(', ')}. Referencia: ${fmt(lo)} a ${fmt(hi)}. Quiero agendar una visita técnica.`);a.target='_blank';a.rel='noopener';
+ const a=$('q-wa');a.href=wa(`Hola KASONA, usé el cotizador referencial de la web: cocina ${parts.join(', ')}. Rango referencial: ${fmt(lo)} a ${fmt(hi)}. Quiero agendar una visita técnica para tener el precio real.`);a.target='_blank';a.rel='noopener';
 };
 document.getElementById('qf').addEventListener('input',calc);calc();
 
@@ -450,6 +466,10 @@ $('vf').addEventListener('submit',e=>{
  $('vf-ok').classList.add('on');
  const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
 });
+const bg=$('burger'),mn=$('mnav');
+const tog=o=>{mn.hidden=!o;bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');document.body.style.overflow=o?'hidden':''};
+bg.addEventListener('click',()=>tog(mn.hidden));
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tog(false)));
 setLinks();
 }
 </script>
