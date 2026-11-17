@@ -132,6 +132,12 @@ select,input,textarea{width:100%;min-height:48px;font:16px Jost,sans-serif;borde
 .qr{padding:24px;background:var(--g2);border-radius:0 0 8px 8px;display:flex;flex-direction:column;justify-content:center}
 .qr .rg{font-size:clamp(26px,3.2vw,40px);font-weight:300;line-height:1.15}@media(max-width:699px){.qr .rg{font-size:clamp(26px,7.5vw,36px)}}
 .qr .sm{font-size:14px;color:var(--s);margin:10px 0 18px}
+.qcta{margin-top:30px;display:grid;gap:18px;align-items:center;background:var(--g);color:var(--m);border-radius:8px;padding:28px;text-decoration:none}
+.qcta .qk{font-size:13px;color:var(--a);font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.qcta h3{font-family:Archivo,"Arial Black",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(22px,3vw,30px);line-height:1}
+.qcta p{color:var(--s);margin:12px 0 0;max-width:60ch}
+.qcta .btn{justify-self:start}
+@media(min-width:700px){.qcta{grid-template-columns:1fr auto;padding:36px}}
 /* materiales */
 .mats{display:grid;gap:14px;margin-top:30px}
 .mat{background:#fff;border-radius:6px;padding:22px}
@@ -208,12 +214,12 @@ footer a{text-decoration:none}
 
 <header class="top">
  <a class="logo" href="#inicio" aria-label="KASONA, inicio"><svg><use href="#iso"/></svg><span>KASONA</span></a>
- <nav class="nav" aria-label="Secciones"><a href="#para-quien">Para quién</a><a href="#estilos">Estilos</a><a href="#precios">Precios</a><a href="#compromiso">Compromiso</a><a href="#visita">Visita</a></nav>
+ <nav class="nav" aria-label="Secciones"><a href="#para-quien">Para quién</a><a href="#estilos">Estilos</a><a href="#precios">Precios</a><a href="/cotizador/">Cotizador</a><a href="#visita">Visita</a></nav>
  <div class="topr"><a class="btn btn-a" href="#visita">Agenda tu visita</a>
  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button></div>
 </header>
 <nav class="mnav" id="mnav" aria-label="Menú" hidden>
- <a href="#para-quien">¿Para quién es KASONA?</a><a href="#manera">Cómo trabajamos</a><a href="#espacio">Tipos de cocina</a><a href="#estilos">Estilos</a><a href="#precios">Precios</a><a href="#cotiza">Cotizador referencial</a><a href="#materiales">Materiales</a><a href="#compromiso">Compromiso</a><a href="#antes-despues">Antes y después</a><a href="#preguntas">Preguntas frecuentes</a><a href="#visita">Agenda tu visita sin costo</a>
+ <a href="#para-quien">¿Para quién es KASONA?</a><a href="#manera">Cómo trabajamos</a><a href="#espacio">Tipos de cocina</a><a href="#estilos">Estilos</a><a href="#precios">Precios</a><a href="/cotizador/">Cotizador referencial</a><a href="/catalogo/">Catálogo digital</a><a href="#materiales">Materiales</a><a href="#compromiso">Compromiso</a><a href="#antes-despues">Antes y después</a><a href="#preguntas">Preguntas frecuentes</a><a href="#visita">Agenda tu visita sin costo</a>
  <a class="btn btn-wa wa-link" data-msg="Hola KASONA, quiero información para mi cocina." href="#"><svg width="22" height="22"><use href="#wai"/></svg>Escríbenos por WhatsApp</a>
 </nav>
 
@@ -305,26 +311,10 @@ footer a{text-decoration:none}
    <div class="pack"><div class="tg"></div><h3>KASONA Completa</h3><div class="pr">Desde S/ 45,000</div><ul><li>Todo lo de Integral</li><li>Demolición e instalaciones</li><li>Pisos y entrega llave en mano</li></ul><div class="for">Remodelación total</div></div>
   </div>
 
-  <div class="quote" id="cotiza">
-   <form class="qf" id="qf" onsubmit="return false">
-    <div class="full"><div style="font-size:13px;color:var(--a);font-weight:500;letter-spacing:.06em;margin-bottom:6px">COTIZADOR REFERENCIAL</div><h3 style="color:var(--m)">¿Cuánto podría costar tu cocina?</h3><p style="color:var(--s);margin:6px 0 0;font-size:15px">Solo una referencia para orientarte. Cada casa y cada espacio son distintos, por eso el precio real se define en la visita técnica sin costo.</p></div>
-    <div><label for="q-size">Tamaño</label><select id="q-size"><option value="c">Compacta · 6–10 m²</option><option value="f" selected>Familiar · 12–20 m²</option><option value="r">Residencial · 25–40 m²</option></select></div>
-    <div><label for="q-pack">Alcance</label><select id="q-pack"><option value="e">Esencial · todo el mobiliario</option><option value="i" selected>Integral</option><option value="x">Completa</option></select></div>
-    <div><label for="q-front">Frentes</label><select id="q-front"><option value="0">Melamina premium</option><option value="1">MDF laqueado</option><option value="2">Enchape natural</option></select></div>
-    <div><label for="q-top">Encimera</label><select id="q-top"><option value="0">Porcelanato</option><option value="1" selected>Granito</option><option value="2">Cuarzo</option><option value="3">Piedra sinterizada</option></select></div>
-    <div class="full"><label>Extras</label><div class="chk">
-     <label><input type="checkbox" id="q-isla"> Isla</label>
-     <label><input type="checkbox" id="q-desp"> Despensa u organización</label>
-     <label><input type="checkbox" id="q-herr"> Herrajes elevables</label></div></div>
-   </form>
-   <div class="qr" aria-live="polite">
-    <div style="font-size:14px;color:var(--s)">Rango referencial</div>
-    <div class="rg" id="q-out">S/ 30,000 – 35,000</div>
-    <div class="sm" id="q-sum">Familiar · Integral · Melamina premium · Granito</div>
-    <a class="btn btn-wa" id="q-wa" href="#"><svg width="22" height="22"><use href="#wai"/></svg>Enviar por WhatsApp</a>
-    <p class="sm" style="margin:14px 0 0">Monto referencial, sin IGV. No es una cotización: cada proyecto se adecua a tu casa y a tu espacio. El precio final, por partidas, lo definimos después de la visita técnica.</p>
-   </div>
-  </div>
+  <a class="qcta" id="cotiza" href="/cotizador/">
+   <div><div class="qk">Cotizador referencial</div><h3>Arma tu cocina y conoce un rango de inversión</h3><p>Elige medidas, frentes, tablero, salpicadero, piso y detalles. Te mostramos el desglose partida por partida. Es solo una referencia: el precio real se define en la visita técnica sin costo.</p></div>
+   <span class="btn btn-a">Abrir el cotizador →</span>
+  </a>
  </div>
 </section>
 
@@ -431,33 +421,7 @@ const draw=f=>{box.innerHTML=S.filter(s=>f==='all'||s[1]===f).map(s=>`<article c
 document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));draw(b.dataset.f)}));
 draw('all');
 
-/* cotizador referencial: precios provisionales en soles, sin IGV */
-const BASE={c:{e:[20000,24000],i:[26000,30000],x:[45000,50000]},f:{e:[25000,29000],i:[30000,35000],x:[52000,60000]},r:{e:[32000,38000],i:[40000,48000],x:[65000,80000]}};
-const FRONT=[1,1.08,1.12],TOP=[.95,1,1.05,1.12];
-const N={c:'Compacta',f:'Familiar',r:'Residencial',e:'Esencial',i:'Integral',x:'Completa'};
 const $=id=>document.getElementById(id);
-const fmt=n=>'S/ '+n.toLocaleString('es-PE');
-const r500=n=>Math.round(n/500)*500;
-const calc=()=>{
- const sz=$('q-size').value,pk=$('q-pack').value,fr=+$('q-front').value,tp=+$('q-top').value;
- const isla=$('q-isla'),desp=$('q-desp').checked,herr=$('q-herr').checked;
- isla.disabled=sz==='c';if(isla.disabled)isla.checked=false;
- $('q-top').disabled=pk==='e';
- let m=FRONT[fr]*(pk==='e'?1:TOP[tp]);
- let [lo,hi]=BASE[sz][pk].map(v=>v*m);
- if(isla.checked){lo+=4000;hi+=6000}
- if(desp){lo+=2000;hi+=2000}
- if(herr){lo+=1500;hi+=1500}
- lo=r500(lo);hi=r500(hi);
- const parts=[N[sz],N[pk],$('q-front').selectedOptions[0].text];
- if(pk!=='e')parts.push($('q-top').selectedOptions[0].text);
- if(isla.checked)parts.push('isla');if(desp)parts.push('despensa');if(herr)parts.push('herrajes elevables');
- $('q-out').textContent=fmt(lo)+' – '+fmt(hi).replace('S/ ','');
- $('q-sum').textContent=parts.join(' · ');
- const a=$('q-wa');a.href=wa(`Hola KASONA, usé el cotizador referencial de la web: cocina ${parts.join(', ')}. Rango referencial: ${fmt(lo)} a ${fmt(hi)}. Quiero agendar una visita técnica para tener el precio real.`);a.target='_blank';a.rel='noopener';
-};
-document.getElementById('qf').addEventListener('input',calc);calc();
-
 /* formulario de visita: abre WhatsApp con los datos */
 $('vf').addEventListener('submit',e=>{
  e.preventDefault();
