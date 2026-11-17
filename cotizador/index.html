@@ -311,9 +311,9 @@ function sugerencia() {
   const base = calcular(S).total; let best = null;
   const prueba = (cambio, texto) => { const d = base - calcular(Object.assign({}, S, cambio)).total; if (d > 0 && (!best || d > best.d)) best = { d, texto }; };
   const ti = PRECIOS.tableros.findIndex((x) => x.id === S.tablero);
-  if (ti > 0) prueba({ tablero: PRECIOS.tableros[ti - 1].id }, "Con " + PRECIOS.tableros[ti - 1].n.toLowerCase() + " en lugar de " + PRECIOS.tableros[ti].n.toLowerCase());
+  if (ti > 0) prueba({ tablero: PRECIOS.tableros[ti - 1].id }, "Con " + PRECIOS.tableros[ti - 1].n + " en lugar de " + PRECIOS.tableros[ti].n);
   const fi = PRECIOS.frentes.findIndex((x) => x.id === S.frente);
-  if (fi > 0) prueba({ frente: PRECIOS.frentes[fi - 1].id }, "Con " + PRECIOS.frentes[fi - 1].n.toLowerCase() + " en lugar de " + PRECIOS.frentes[fi].n.toLowerCase());
+  if (fi > 0) prueba({ frente: PRECIOS.frentes[fi - 1].id }, "Con " + PRECIOS.frentes[fi - 1].n + " en lugar de " + PRECIOS.frentes[fi].n);
   return best;
 }
 
@@ -329,7 +329,7 @@ function pintar() {
   $("x-vitrina").value = String(S.vitrina); $("x-griferia").value = S.griferia; $("x-organizacion").value = S.organizacion;
   const c = calcular(S), t = by(PRECIOS.tipos, S.tipo);
   $("rango").textContent = rango(c.total); $("rango2").textContent = rango(c.total);
-  $("resumen").textContent = "Cocina " + t.n.toLowerCase() + " de " + S.area + " m². Precio final tras la visita técnica.";
+  $("resumen").textContent = "Cocina " + t.n + " de " + S.area + " m². Precio final tras la visita técnica.";
   $("detalle").innerHTML = c.partidas.map((p) => `<tr><td>${p[0]}${p[1] ? `<small>${p[1]}</small>` : ""}</td><td>${soles(p[2])}</td></tr>`).join("");
   const s = sugerencia();
   $("ahorro").innerHTML = s ? `<b>Cambia y ahorra.</b> ${s.texto} bajas cerca de ${soles(r500(s.d))}.` : `<b>Configuración más accesible.</b> Ya elegiste los materiales de menor precio.`;
