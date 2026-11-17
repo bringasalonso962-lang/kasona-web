@@ -12,9 +12,9 @@
 /* VOICE: especialista cercano, premium sin distancia, frases cortas y concretas
    IDEA: el catálogo de KASONA hecho web: se hojea como un muestrario de cocinas
    PICTURE: la cocina verde oliva del catálogo, a sangre, con el isotipo de la casa con K
-   COLOUR and TYPE: verde bosque dominante, marfil de apoyo, arcilla solo en la acción; Jost ligera
+   COLOUR and TYPE: verde pino dominante, crema de apoyo, arcilla solo en la acción; Jost ligera
    LAYOUT: una columna en celular, bandas a todo el ancho, WhatsApp siempre a un toque */
-:root{color-scheme:light;--g:#1F2E27;--g2:#2A3D33;--m:#F5F1EA;--s:#D5DDD1;--a:#B5704F;--ink:#1F2E27;--q:#58665F;--w:#FBFAF7;--wa:#1FA855}
+:root{color-scheme:light;--g:#184030;--g2:#215240;--m:#F6EFE4;--s:#E8DCCB;--a:#B5704F;--ink:#184030;--q:#58665F;--w:#FBFAF7;--wa:#1FA855}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--w);color:var(--ink);font:16px/1.55 Jost,system-ui,sans-serif;overflow-x:clip}
@@ -40,7 +40,7 @@ p{margin:0 0 12px}
 .btn-o{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
 .btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--a);outline-offset:2px}
 /* header */
-.top{position:sticky;top:0;z-index:20;background:rgba(31,46,39,.97);color:var(--m);display:flex;align-items:center;justify-content:space-between;padding:10px max(5vw,18px);backdrop-filter:blur(6px)}
+.top{position:sticky;top:0;z-index:20;background:rgba(24,64,48,.97);color:var(--m);display:flex;align-items:center;justify-content:space-between;padding:10px max(5vw,18px);backdrop-filter:blur(6px)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo svg{width:30px;height:29px}
 .logo span{font-weight:500;letter-spacing:.36em;font-size:15px}
@@ -48,14 +48,14 @@ p{margin:0 0 12px}
 .nav a{text-decoration:none;opacity:.85}
 .top .btn{min-height:40px;padding:0 16px;font-size:14px}
 .topr{display:flex;align-items:center;gap:10px}
-.burger{width:44px;height:44px;border:1px solid rgba(213,221,209,.35);border-radius:4px;background:transparent;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:0}
+.burger{width:44px;height:44px;border:1px solid rgba(232,220,203,.35);border-radius:4px;background:transparent;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:0}
 .burger span{display:block;width:20px;height:1.6px;background:var(--m);transition:transform .2s,opacity .2s}
 .burger[aria-expanded=true] span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
 .burger[aria-expanded=true] span:nth-child(2){opacity:0}
 .burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
 .mnav{position:fixed;top:64px;left:0;right:0;bottom:0;z-index:19;background:var(--g);color:var(--m);padding:8px max(5vw,18px) 40px;overflow-y:auto;display:flex;flex-direction:column}
 .mnav[hidden]{display:none}
-.mnav a{text-decoration:none;font-size:19px;font-weight:300;padding:14px 0;border-bottom:1px solid rgba(213,221,209,.15)}
+.mnav a{text-decoration:none;font-size:19px;font-weight:300;padding:14px 0;border-bottom:1px solid rgba(232,220,203,.15)}
 .mnav .btn{margin-top:22px;border:0;font-size:16px;font-weight:500;padding:0 24px}
 /* hero */
 .hero{background:var(--g);color:var(--m);display:grid}
@@ -100,7 +100,7 @@ p{margin:0 0 12px}
 .space p{color:var(--s);margin:4px 0 12px}
 .space .btn{margin-top:auto;align-self:flex-start;min-height:44px;font-size:15px}
 .dist{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.dist span{border:1px solid rgba(213,221,209,.35);border-radius:40px;padding:8px 16px;font-size:14px;color:var(--s)}
+.dist span{border:1px solid rgba(232,220,203,.35);border-radius:40px;padding:8px 16px;font-size:14px;color:var(--s)}
 /* estilos */
 .tabs{display:flex;gap:8px;margin:26px 0 18px;overflow-x:auto;padding-bottom:4px}
 .tabs button{flex:none;min-height:44px;padding:0 18px;border-radius:40px;border:1px solid var(--s);background:#fff;font:15px Jost,sans-serif;color:var(--ink);cursor:pointer}
@@ -127,7 +127,7 @@ p{margin:0 0 12px}
 .qf label{display:block;font-size:14px;color:var(--s);margin-bottom:6px}
 select,input,textarea{width:100%;min-height:48px;font:16px Jost,sans-serif;border-radius:4px;border:1px solid var(--s);padding:10px 12px;background:#fff;color:var(--ink)}
 .chk{display:flex;flex-wrap:wrap;gap:8px}
-.chk label{display:flex;align-items:center;gap:8px;margin:0;border:1px solid rgba(213,221,209,.35);border-radius:40px;padding:8px 14px;color:var(--m);font-size:14px;cursor:pointer;min-height:44px}
+.chk label{display:flex;align-items:center;gap:8px;margin:0;border:1px solid rgba(232,220,203,.35);border-radius:40px;padding:8px 14px;color:var(--m);font-size:14px;cursor:pointer;min-height:44px}
 .chk input{width:18px;min-height:18px;height:18px;accent-color:var(--a)}
 .qr{padding:24px;background:var(--g2);border-radius:0 0 8px 8px;display:flex;flex-direction:column;justify-content:center}
 .qr .rg{font-size:clamp(26px,3.2vw,40px);font-weight:300;line-height:1.15}@media(max-width:699px){.qr .rg{font-size:clamp(26px,7.5vw,36px)}}
@@ -264,9 +264,9 @@ footer a{text-decoration:none}
   <h2>Trabajamos distinto</h2>
   <p class="lead">Muchos proyectos empiezan con un render espectacular y terminan con un presupuesto inalcanzable. En KASONA hacemos lo contrario: primero entendemos tu espacio y tu presupuesto; después diseñamos lo que sí vamos a construir.</p>
   <div class="steps">
-   <div class="step"><svg viewBox="0 0 48 48" fill="none" stroke="#1F2E27" stroke-width="1.6"><path d="M8 22L24 9l16 13M12 19v21h24V19"/><path d="M21 40V30h6v10"/></svg><div><h3>Te visitamos</h3><p>Medimos, escuchamos cómo vives y revisamos tus instalaciones.</p></div></div>
-   <div class="step"><svg viewBox="0 0 48 48" fill="none" stroke="#1F2E27" stroke-width="1.6"><path d="M12 8h18l6 6v26H12z"/><path d="M17 20h14M17 26h14M17 32h8"/></svg><div><h3>Te explicamos</h3><p>Diseño, materiales y precio por partidas. Sabes qué pagas antes de empezar.</p></div></div>
-   <div class="step"><svg viewBox="0 0 48 48" fill="none" stroke="#1F2E27" stroke-width="1.6"><path d="M10 38l10-10M20 28l14-18 4 4-18 14z"/><path d="M8 40h32"/></svg><div><h3>Ejecutamos</h3><p>Fabricamos, instalamos y entregamos con nuestro propio equipo.</p></div></div>
+   <div class="step"><svg viewBox="0 0 48 48" fill="none" stroke="#184030" stroke-width="1.6"><path d="M8 22L24 9l16 13M12 19v21h24V19"/><path d="M21 40V30h6v10"/></svg><div><h3>Te visitamos</h3><p>Medimos, escuchamos cómo vives y revisamos tus instalaciones.</p></div></div>
+   <div class="step"><svg viewBox="0 0 48 48" fill="none" stroke="#184030" stroke-width="1.6"><path d="M12 8h18l6 6v26H12z"/><path d="M17 20h14M17 26h14M17 32h8"/></svg><div><h3>Te explicamos</h3><p>Diseño, materiales y precio por partidas. Sabes qué pagas antes de empezar.</p></div></div>
+   <div class="step"><svg viewBox="0 0 48 48" fill="none" stroke="#184030" stroke-width="1.6"><path d="M10 38l10-10M20 28l14-18 4 4-18 14z"/><path d="M8 40h32"/></svg><div><h3>Ejecutamos</h3><p>Fabricamos, instalamos y entregamos con nuestro propio equipo.</p></div></div>
   </div>
   <p class="years"><b>Más de 10 años</b> haciendo cocinas.</p>
  </div>
